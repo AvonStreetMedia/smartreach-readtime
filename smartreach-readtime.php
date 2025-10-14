@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SmartReach Read Time
- * Description: Displays an estimated "X min read" for posts. Includes settings, shortcode, and optional automatic output.
- * Version: 1.0.0
+ * Description: Displays an estimated "X min read" for posts. Includes settings, shortcode, template tag, and optional automatic output.
+ * Version: 1.0.1
  * Author: Your Name
  * License: GPLv2 or later
  * Text Domain: smartreach-readtime
@@ -10,7 +10,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('SR_READTIME_VERSION', '1.0.0');
+define('SR_READTIME_VERSION', '1.0.1');
 define('SR_READTIME_OPT', 'sr_readtime_options');
 
 function sr_readtime_default_options() {
@@ -18,7 +18,7 @@ function sr_readtime_default_options() {
     'enabled' => 1,
     'wpm'     => 220,
     'prefix'  => 'min read',
-    'html'    => '<p class="sr-readtime"><span class="sr-readtime__value">%d</span> %s</p>',
+    'html'    => '<span class="sr-readtime"><span class="sr-readtime__value">%d</span> %s</span>',
   ];
 }
 
@@ -82,7 +82,7 @@ function sr_readtime_enqueue_styles() {
   if ($enqueued) return;
   $enqueued = true;
 
-  $css = '.sr-readtime{margin:0 0 0.75rem;color:#555;font-size:.95rem}
+  $css = '.sr-readtime{display:inline;font-size:inherit;color:inherit;margin:0;padding:0}
           .sr-readtime__value{font-weight:600}';
 
   wp_register_style('sr-readtime-inline', false, [], SR_READTIME_VERSION);
