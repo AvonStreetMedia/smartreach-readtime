@@ -211,8 +211,8 @@ function sr_readtime_enqueue_styles() {
     }
     $enqueued = true;
     
-    $css = '.sr-readtime{display:inline;font:inherit;color:inherit;line-height:inherit;letter-spacing:inherit;text-transform:inherit;margin:0;padding:0}
-.sr-readtime__value{font-weight:inherit}';
+    $css = '.sr-readtime{display:inline!important;font:inherit!important;color:inherit!important;line-height:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+.sr-readtime__value{font:inherit!important;color:inherit!important}';
     
     /**
      * Filter the read time CSS
